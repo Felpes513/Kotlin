@@ -1,0 +1,32 @@
+class Funcionario{
+    private var nome : String
+    private var salario : Double
+    
+    constructor (nome: String, salario: Double ){
+        this.nome = nome
+        this.salario = salario
+    }
+    fun getNome(): String {
+        return nome
+    }
+    fun calcBonus(): Double {
+        var bonusAcumulado = 0.0
+        var porcentagemBonus = 0.05
+        for (ano in 1..3){
+            val bonusAnual = salario * porcentagemBonus
+            bonusAcumulado += bonusAnual
+            porcentagemBonus += 0.05
+        }
+        return bonusAcumulado
+    }
+}
+fun main(){
+    val funcionario = Funcionario("Carlos", 2000.0)
+    println("Nome: ${funcionario.getNome()}")
+    println("Bonus acumulado após 3 anos: ${funcionario.calcBonus()}")
+}
+
+O método calcBonus está iniciando duas variáveis (bonusAcumulado e porcentagemBonus)
+bonusAcumulado inicia com valor 0, porcentagemAcumulado aumenta em 0.05 ou (5%) se fosse 0.10 por exemplo seria 10%
+O sinal de += é a mesma coisa de por exemplo a = a + 2 ou seja o valor de a (que é 0) será somada com 2 e retornará a a ou seja a = 2
+Então no main ele chama a variavel através do getNome "Carlos" e graças ao for ele chama o método calcBonus que usando o for irá calcular o valor em 3 anos.
