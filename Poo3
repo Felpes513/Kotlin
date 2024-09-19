@@ -1,0 +1,23 @@
+class ContaBancaria{
+    private var saldoInicial: Double
+    private var taxaJuros: Double
+    private var depositosMensais: map0f(
+    1 to 200.0, 2 to 150.0, 3 to 300.0, 4 to 100.0, 5 to 250.0, 6 to 200.0)
+    
+    constructor (saldoIncial: Double, taxaJuros: Double){
+        this.saldoInicial = saldoIncial
+        this.taxaJuros = taxaJuros
+    }
+    fun calcularSaldoFinal(): Double {
+        var saldoFinal = saldoInicial
+        for((mes, deposito) in depositosMensais){
+            saldoFinal += deposito
+        saldoFinal += saldoFinal * (taxaJuros / 100)
+        }
+    return saldoFinal
+}
+fun main(){
+    val conta = ContaBancaria(1000.0, 2.0)
+    val saldoFinal = conta.calcularSaldoFinal()
+    println("Saldo final após 6 meses: R$ %.2f".format(saldoFinal) )
+}
