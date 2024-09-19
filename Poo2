@@ -1,0 +1,21 @@
+class Investimento {
+    private var valorInicial: Double
+    private var taxaJuros: Double
+    
+    constructor (valorInicial: Double, taxaJuros: Double){
+        this.valorInicial = valorInicial
+        this.taxaJuros = taxaJuros
+    }
+    fun calcValorFinal(): Double {
+        var valorFinal = valorInicial
+        for(ano in 1..10) {
+            valorFinal += valorInicial * (taxaJuros / 100)
+        }
+        return valorFinal
+    }
+}
+fun main(){
+    val investimento = Investimento(1000.0, 10.0)
+    val valorFinal = investimento.calcValorFinal()
+    println("Valor final do investimento após 10 anos: RS %.2f".format(valorFinal))
+}
